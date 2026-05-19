@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  
+  --color-bg-primary: #1F1F24;
+  --color-bg-black: #000000;
+  --color-bg-light: #F2F2F2;
+  --color-bg-blueish: #31313A;
+  --color-bg-card-dark: #3E3E48; /* For the dark blue/grey cards in My Work */
+  --color-text-primary: #B0FF00;
+  --color-text-secondary: #AAAAAA;
+  --color-accent-pink: #FDE8F1; /* Light pink from "View project" */
+}
+
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-montserrat m-0 p-0 overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+/* Custom Scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary); 
+}
+::-webkit-scrollbar-thumb {
+  background: #555; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
