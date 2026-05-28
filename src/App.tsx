@@ -5,22 +5,20 @@ import WorkSection from './components/WorkSection';
 import ExperienceSection from './components/ExperienceSection';
 import FreelanceSection from './components/FreelanceSection';
 import ProjectModal from './components/ProjectModal';
+import type { Project } from './types/project';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="w-full bg-bg-primary text-text-primary">
       <Header />
       <ExpertiseSection />
-      <WorkSection onOpenModal={openModal} />
+      <WorkSection onOpenModal={setSelectedProject} />
       <ExperienceSection />
       <FreelanceSection />
-      
-      <ProjectModal isOpen={isModalOpen} onClose={closeModal} />
+
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </div>
   );
 }
