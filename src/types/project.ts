@@ -23,6 +23,8 @@ export interface Project {
   languages: string[];
   githubUrl: string;
   screenshotCount: number;
+  coverImage?: string;
+  images?: string[];
   highlights?: ProjectHighlight[];
   devopsFlow?: DevopsStage[];
   localSetup?: string[];

@@ -1,5 +1,3 @@
-import { User } from 'lucide-react';
-
 export default function Header() {
   return (
     <header className="bg-bg-black min-h-screen flex flex-col pt-8 pb-16 px-8 lg:px-24">
@@ -9,7 +7,7 @@ export default function Header() {
           <img src="/logo2.png" alt='logo' className='h-10 md:h-12' />
         </div>
 
-        <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+        <ul className="flex flex-wrap justify-center gap-8 text-base md:text-lg text-gray-400">
           <li><a href="#home" className="hover:text-white transition-colors">01//home</a></li>
           <li><a href="#expertise" className="hover:text-white transition-colors">02//expertise</a></li>
           <li><a href="#work" className="hover:text-white transition-colors">03//my work</a></li>
@@ -20,8 +18,8 @@ export default function Header() {
       {/* Hero Content */}
       <div className="flex-1 flex flex-col items-center justify-center text-center">
         {/* Avatar */}
-        <div className="bg-[#D9D9D9] w-48 h-48 rounded-[3rem] mb-8 flex items-center justify-center overflow-hidden">
-          <User className="w-32 h-32 text-gray-400 mt-8" />
+        <div className="w-64 h-64 md:w-80 md:h-80 rounded-[4rem] mb-8 flex items-center justify-center overflow-hidden bg-[#D9D9D9]">
+          <img src="/profile.jpg" alt="Estela Lacerda" className="w-full h-full object-cover scale-[1.25]" />
         </div>
 
         {/* Name & Subtitle */}

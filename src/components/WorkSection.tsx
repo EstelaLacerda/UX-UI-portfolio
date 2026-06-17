@@ -18,6 +18,8 @@ const projects: Project[] = [
     languages: ["React", "Node.js", "Python", "Flask"],
     githubUrl: "https://github.com/MatheusGom/Cattuccino_P5",
     screenshotCount: 5,
+    coverImage: "/catuccino/catuccino1.jpeg",
+    images: Array.from({ length: 6 }, (_, i) => `/catuccino/catuccino${i + 1}.jpeg`),
   },
   {
     title: "Hunt-hub",
@@ -32,6 +34,8 @@ const projects: Project[] = [
     languages: ["Java", "Spring Boot", "Next.js", "TypeScript"],
     githubUrl: "https://github.com/CarlosAugustoP/hunt-hub",
     screenshotCount: 6,
+    coverImage: "/HuntHub/HuntHub1.png",
+    images: Array.from({ length: 6 }, (_, i) => `/HuntHub/HuntHub${i + 1}.png`),
   },
   {
     title: "EndoAI",
@@ -46,6 +50,8 @@ const projects: Project[] = [
     languages: ["Python", "Flask", "React", "Node.js"],
     githubUrl: "https://github.com/paulo-campos-57/EndoAI",
     screenshotCount: 4,
+    coverImage: "/Endoai/Endoai1.jpeg",
+    images: Array.from({ length: 6 }, (_, i) => `/Endoai/Endoai${i + 1}.jpeg`),
   },
   {
     title: "IsCool GPT",
@@ -60,6 +66,8 @@ const projects: Project[] = [
     languages: ["Python", "Flask"],
     githubUrl: "https://github.com/EstelaLacerda/IsCoolGPT---Cloud-Project",
     screenshotCount: 3,
+    coverImage: "/Iscool/Iscool1.png",
+    images: Array.from({ length: 6 }, (_, i) => `/Iscool/Iscool${i + 1}.png`),
     highlights: [
       {
         title: "Arquitetura Cloud-Native",
@@ -129,6 +137,8 @@ const projects: Project[] = [
     languages: ["Python", "React", "JavaScript"],
     githubUrl: "https://github.com/paulo-campos-57/Upcycle-Crew",
     screenshotCount: 3,
+    coverImage: "/UpcicleCrew/UpcicleCrew1.png",
+    images: Array.from({ length: 6 }, (_, i) => `/UpcicleCrew/UpcicleCrew${i + 1}.png`),
     highlights: [
       {
         title: "Visão Computacional",
@@ -170,6 +180,8 @@ const projects: Project[] = [
     languages: ["React", "JavaScript", "CSS"],
     githubUrl: "https://github.com/EstelaLacerda/GraphProject",
     screenshotCount: 3,
+    coverImage: "/Graph/Graph1.png",
+    images: Array.from({ length: 6 }, (_, i) => `/Graph/Graph${i + 1}.png`),
     highlights: [
       {
         title: "Tipos de Grafo",
@@ -221,12 +233,16 @@ export default function WorkSection({ onOpenModal }: WorkSectionProps) {
             onClick={() => onOpenModal(project)}
           >
             {/* Project Image Placeholder */}
-            <div className="w-full aspect-[4/3] bg-bg-card-dark mb-4 group-hover:opacity-80 transition-opacity flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-[#555]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
+            <div className="w-full aspect-[4/3] bg-bg-card-dark mb-4 group-hover:opacity-80 transition-opacity flex items-center justify-center overflow-hidden">
+              {project.coverImage ? (
+                <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-[#555]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              )}
             </div>
             {/* Tags */}
             <div className="flex flex-wrap gap-1.5 mb-2">

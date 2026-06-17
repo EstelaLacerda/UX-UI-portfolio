@@ -80,7 +80,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* Client Brand card */}
             <div className="flex items-center gap-4 mb-8 p-4 bg-white border border-gray-200">
-              <ImgPlaceholder className="w-16 h-16 rounded shrink-0" />
+              {project.enterprise.includes('CESAR') ? (
+                <img src="/cesar.png" alt="CESAR" className="w-16 h-16 rounded shrink-0 object-contain" />
+              ) : project.enterprise.includes('BB') || project.enterprise.includes('Banco do Brasil') ? (
+                <img src="/bb.png" alt="Banco do Brasil" className="w-16 h-16 rounded shrink-0 object-contain" />
+              ) : (
+                <ImgPlaceholder className="w-16 h-16 rounded shrink-0" />
+              )}
               <div>
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">Marca do Cliente</p>
                 <p className="font-bold text-xl leading-tight">{project.clientBrand}</p>
@@ -89,13 +95,23 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Hero image */}
-            <ImgPlaceholder className="w-full aspect-video mb-3 rounded" />
+            {project.images && project.images[0] ? (
+              <img src={project.images[0]} alt={`${project.title} Hero`} className="w-full aspect-video mb-3 rounded object-cover" />
+            ) : (
+              <ImgPlaceholder className="w-full aspect-video mb-3 rounded" />
+            )}
 
             {/* Screenshot gallery */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
-              {Array.from({ length: project.screenshotCount }).map((_, i) => (
-                <ImgPlaceholder key={i} className="aspect-video rounded" />
-              ))}
+              {project.images && project.images.length > 1 ? (
+                project.images.slice(1).map((src, i) => (
+                  <img key={i} src={src} alt={`${project.title} screenshot ${i + 1}`} className="aspect-video rounded object-cover w-full h-full" />
+                ))
+              ) : (
+                Array.from({ length: project.screenshotCount }).map((_, i) => (
+                  <ImgPlaceholder key={i} className="aspect-video rounded" />
+                ))
+              )}
             </div>
 
             {/* ── Details grid ── */}
