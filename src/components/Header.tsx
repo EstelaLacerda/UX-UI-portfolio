@@ -45,9 +45,13 @@ export default function Header() {
           >
             Github
           </a>
-          <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors text-center leading-tight">
+          <a
+            href="/Estela Oliveira.pdf"
+            download="Estela Oliveira.pdf"
+            className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors text-center leading-tight"
+          >
             Download<br />my resume
-          </button>
+          </a>
           <a
             href="https://www.linkedin.com/in/estela-de-lacerda-oliveira/"
             target="_blank"
