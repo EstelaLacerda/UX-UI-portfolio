@@ -1,5 +1,6 @@
 import { ArrowLeft, GitBranch, ExternalLink, X, Zap, GitMerge, Terminal } from 'lucide-react';
 import type { Project } from '../types/project';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -26,6 +27,8 @@ function ImgPlaceholder({ className }: { className?: string }) {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const { t } = useLanguage();
+
   if (!project) return null;
 
   return (
@@ -46,7 +49,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Work
+              {t('modal.backToWork')}
             </button>
             <button
               onClick={onClose}
@@ -80,15 +83,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* Client Brand card */}
             <div className="flex items-center gap-4 mb-8 p-4 bg-white border border-gray-200">
-              {project.enterprise.includes('CESAR') ? (
+              {project.enterprise?.includes('CESAR') ? (
                 <img src="/cesar.png" alt="CESAR" className="w-16 h-16 rounded shrink-0 object-contain" />
-              ) : project.enterprise.includes('BB') || project.enterprise.includes('Banco do Brasil') ? (
+              ) : project.enterprise?.includes('BB') || project.enterprise?.includes('Banco do Brasil') ? (
                 <img src="/bb.png" alt="Banco do Brasil" className="w-16 h-16 rounded shrink-0 object-contain" />
               ) : (
                 <ImgPlaceholder className="w-16 h-16 rounded shrink-0" />
               )}
               <div>
-                <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">Marca do Cliente</p>
+                <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">{t('modal.clientBrand')}</p>
                 <p className="font-bold text-xl leading-tight">{project.clientBrand}</p>
                 <p className="text-sm text-gray-500">{project.enterprise}</p>
               </div>
@@ -120,17 +123,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Left column */}
               <div className="flex flex-col gap-7">
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">Minha Atuação</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">{t('modal.myRole')}</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">{project.myRole}</p>
                 </div>
 
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">Duração</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">{t('modal.duration')}</h4>
                   <p className="text-gray-700 text-sm">{project.duration}</p>
                 </div>
 
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">Empresa / Cliente</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">{t('modal.enterpriseClient')}</h4>
                   <p className="text-gray-700 text-sm">{project.enterprise}</p>
                 </div>
 
@@ -143,7 +146,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     className="inline-flex items-center gap-2 bg-[#1F1F24] text-[#B0FF00] text-sm font-semibold px-4 py-2 hover:bg-black transition-colors"
                   >
                     <GitBranch className="w-4 h-4" />
-                    Ver no GitHub
+                    {t('modal.viewGithub')}
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -151,7 +154,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Right column */}
               <div>
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">Processo do Projeto</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">{t('modal.projectProcess')}</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">{project.process}</p>
               </div>
             </div>
@@ -162,7 +165,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* Tools + Languages */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
               <div>
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">Ferramentas Utilizadas</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('modal.toolsUsed')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.tools.map((tool) => (
                     <span
@@ -176,7 +179,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
 
               <div>
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">Linguagens / Tecnologias</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('modal.languagesTech')}</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.languages.map((lang) => (
                     <span
@@ -197,7 +200,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <hr className="border-gray-300 mb-8" />
                 <div className="mb-10">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
-                    <Zap className="w-3.5 h-3.5" /> Diferenciais do Projeto
+                    <Zap className="w-3.5 h-3.5" /> {t('modal.highlights')}
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {project.highlights.map((h, i) => (
@@ -217,7 +220,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <hr className="border-gray-300 mb-8" />
                 <div className="mb-10">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
-                    <GitMerge className="w-3.5 h-3.5" /> Arquitetura de DevOps — Fluxo de Branches
+                    <GitMerge className="w-3.5 h-3.5" /> {t('modal.devopsFlow')}
                   </h4>
                   <div className="flex flex-col gap-4">
                     {project.devopsFlow.map((stage, i) => (
@@ -247,7 +250,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <hr className="border-gray-300 mb-8" />
                 <div className="mb-10">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
-                    <Terminal className="w-3.5 h-3.5" /> Como Rodar Localmente
+                    <Terminal className="w-3.5 h-3.5" /> {t('modal.localSetup')}
                   </h4>
                   <ol className="flex flex-col gap-3">
                     {project.localSetup.map((step, i) => (
@@ -270,7 +273,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               onClick={onClose}
               className="bg-[#FDE8F1] text-black font-bold py-2 px-8 hover:bg-pink-200 transition-colors"
             >
-              ← Back
+              {t('modal.backBtn')}
             </button>
           </div>
 

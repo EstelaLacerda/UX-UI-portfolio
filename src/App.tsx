@@ -7,17 +7,21 @@ import ExperienceSection from './components/ExperienceSection';
 import ProjectModal from './components/ProjectModal';
 import type { Project } from './types/project';
 
+import { LanguageProvider } from './contexts/LanguageContext';
+
 function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="w-full bg-bg-primary text-text-primary">
-      <Header />
-      <ExpertiseSection />
-      <WorkSection onOpenModal={setSelectedProject} />
-      <ExperienceSection />
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-    </div>
+    <LanguageProvider>
+      <div className="w-full bg-bg-primary text-text-primary">
+        <Header />
+        <ExpertiseSection />
+        <WorkSection onOpenModal={setSelectedProject} />
+        <ExperienceSection />
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      </div>
+    </LanguageProvider>
   );
 }
 
