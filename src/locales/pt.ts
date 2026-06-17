@@ -278,5 +278,8 @@ export const pt = {
         "Acesse no navegador: http://localhost:3000",
       ],
     },
-  ] as Project[]
+  ] as Project[],
+  footer: {
+    developedBy: "Desenvolvido por Estela Lacerda"
+  }
 };

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ExpertiseSection from './components/ExpertiseSection';
 import WorkSection from './components/WorkSection';
 import ExperienceSection from './components/ExperienceSection';
+import Footer from './components/Footer';
 
 import ProjectModal from './components/ProjectModal';
 import type { Project } from './types/project';
@@ -19,6 +20,7 @@ function App() {
         <ExpertiseSection />
         <WorkSection onOpenModal={setSelectedProject} />
         <ExperienceSection />
+        <Footer />
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       </div>
     </LanguageProvider>
