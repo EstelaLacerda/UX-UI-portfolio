@@ -1,4 +1,4 @@
-import { ArrowLeft, GitBranch, ExternalLink, X } from 'lucide-react';
+import { ArrowLeft, GitBranch, ExternalLink, X, Zap, GitMerge, Terminal } from 'lucide-react';
 import type { Project } from '../types/project';
 
 interface ProjectModalProps {
@@ -174,6 +174,80 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </div>
               </div>
             </div>
+
+            {/* ── Highlights (optional) ── */}
+            {project.highlights && project.highlights.length > 0 && (
+              <>
+                <hr className="border-gray-300 mb-8" />
+                <div className="mb-10">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                    <Zap className="w-3.5 h-3.5" /> Diferenciais do Projeto
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {project.highlights.map((h, i) => (
+                      <div key={i} className="bg-[#1F1F24] text-white p-5 rounded">
+                        <p className="text-[#B0FF00] font-bold text-sm mb-1">{h.title}</p>
+                        <p className="text-gray-300 text-xs leading-relaxed">{h.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* ── DevOps Flow (optional) ── */}
+            {project.devopsFlow && project.devopsFlow.length > 0 && (
+              <>
+                <hr className="border-gray-300 mb-8" />
+                <div className="mb-10">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                    <GitMerge className="w-3.5 h-3.5" /> Arquitetura de DevOps — Fluxo de Branches
+                  </h4>
+                  <div className="flex flex-col gap-4">
+                    {project.devopsFlow.map((stage, i) => (
+                      <div key={i} className="border border-gray-300 p-5 rounded">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="bg-[#B0FF00] text-[#1F1F24] text-[10px] font-black uppercase px-2 py-0.5 rounded">
+                            {stage.branch}
+                          </span>
+                          <span className="font-bold text-sm text-[#1F1F24]">{stage.label}</span>
+                        </div>
+                        <p className="text-gray-500 text-xs mb-2">{stage.purpose}</p>
+                        <ul className="list-disc list-inside space-y-1">
+                          {stage.details.map((d, j) => (
+                            <li key={j} className="text-gray-700 text-xs leading-relaxed">{d}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* ── Local Setup (optional) ── */}
+            {project.localSetup && project.localSetup.length > 0 && (
+              <>
+                <hr className="border-gray-300 mb-8" />
+                <div className="mb-10">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                    <Terminal className="w-3.5 h-3.5" /> Como Rodar Localmente
+                  </h4>
+                  <ol className="flex flex-col gap-3">
+                    {project.localSetup.map((step, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <span className="bg-[#1F1F24] text-[#B0FF00] text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shrink-0 mt-0.5">
+                          {i + 1}
+                        </span>
+                        <code className="text-gray-700 text-xs leading-relaxed font-mono bg-gray-100 px-2 py-1 rounded w-full">
+                          {step}
+                        </code>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </>
+            )}
 
             {/* Back button */}
             <button

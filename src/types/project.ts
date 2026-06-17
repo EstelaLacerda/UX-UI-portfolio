@@ -1,3 +1,15 @@
+export interface ProjectHighlight {
+  title: string;
+  description: string;
+}
+
+export interface DevopsStage {
+  branch: string;
+  label: string;
+  purpose: string;
+  details: string[];
+}
+
 export interface Project {
   title: string;
   category: string;
@@ -11,4 +23,7 @@ export interface Project {
   languages: string[];
   githubUrl: string;
   screenshotCount: number;
+  highlights?: ProjectHighlight[];
+  devopsFlow?: DevopsStage[];
+  localSetup?: string[];
 }

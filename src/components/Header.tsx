@@ -14,7 +14,6 @@ export default function Header() {
           <li><a href="#expertise" className="hover:text-white transition-colors">02//expertise</a></li>
           <li><a href="#work" className="hover:text-white transition-colors">03//my work</a></li>
           <li><a href="#experience" className="hover:text-white transition-colors">04//professional experience</a></li>
-          <li><a href="#freelance" className="hover:text-white transition-colors">05//freelance</a></li>
         </ul>
       </nav>
 
@@ -28,7 +27,7 @@ export default function Header() {
         {/* Name & Subtitle */}
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">Estela Lacerda</h1>
         <p className="text-[#6B7280] text-sm md:text-base tracking-widest uppercase max-w-2xl mb-12">
-          Lorem ipsum dolor, sit amet & consectetur adipiscing.
+          Dados · Desenvolvimento · UX/UI
         </p>
 
         {/* Featured In */}
@@ -38,21 +37,39 @@ export default function Header() {
 
         {/* Buttons Grid */}
         <div className="flex flex-wrap justify-center gap-4 w-full max-w-4xl">
-          <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors">
+          <a
+            href="https://github.com/EstelaLacerda"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors"
+          >
             Github
-          </button>
+          </a>
           <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors text-center leading-tight">
             Download<br />my resume
           </button>
-          <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors">
+          <a
+            href="https://www.linkedin.com/in/estela-de-lacerda-oliveira/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors"
+          >
             Linkedin
-          </button>
-          <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors">
+          </a>
+          <a
+            href="mailto:esteladelac.oli@gmail.com?subject=Contato%20via%20Portf%C3%B3lio&body=Ol%C3%A1%2C%20Estela!%20Vi%20o%20seu%20Portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20alguns%20projetos."
+            className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors"
+          >
             E-mail
-          </button>
-          <button className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors">
+          </a>
+          <a
+            href="https://wa.me/558189519503?text=Ol%C3%A1%2C%20Estela!%20Vi%20o%20seu%20Portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20alguns%20projetos."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#E5E7EB] text-black font-medium py-3 px-8 text-sm hover:bg-white transition-colors"
+          >
             Contact me
-          </button>
+          </a>
         </div>
       </div>
     </header>

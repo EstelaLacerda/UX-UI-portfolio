@@ -1,4 +1,4 @@
-import { Monitor, Code2, Smartphone } from 'lucide-react';
+import { BarChart2, Code2, Users } from 'lucide-react';
 
 export default function ExpertiseSection() {
   return (
@@ -6,35 +6,41 @@ export default function ExpertiseSection() {
       <h2 className="text-5xl md:text-6xl font-bold text-center mb-20 text-[#1F1F24]">
         Expertise
       </h2>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {/* Card 1 */}
+        {/* Card 1 — Data Analysis */}
         <div className="border border-gray-200 p-10 flex flex-col items-start bg-white hover:shadow-lg transition-shadow">
-          <Monitor className="w-10 h-10 mb-8 text-[#1F1F24]" strokeWidth={1.5} />
-          <h3 className="text-2xl font-bold mb-2">Lorem Ipsum</h3>
-          <h4 className="text-gray-500 mb-8 font-medium">Dolor Sit Amet</h4>
+          <BarChart2 className="w-10 h-10 mb-8 text-[#1F1F24]" strokeWidth={1.5} />
+          <h3 className="text-2xl font-bold mb-2">Análise de Dados</h3>
+          <h4 className="text-gray-500 mb-8 font-medium">Colab · Jupyter · Pandas · Scikit-learn</h4>
           <p className="text-gray-500 leading-relaxed text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Experiência com análise e tratamento de dados utilizando Google Colab e Jupyter Notebook. 
+            Domínio de bibliotecas como Pandas, NumPy e Matplotlib para exploração de dados, 
+            além de Scikit-learn e TensorFlow para criação e treinamento de modelos de Machine Learning.
           </p>
         </div>
 
-        {/* Card 2 */}
+        {/* Card 2 — Development */}
         <div className="border border-gray-200 p-10 flex flex-col items-start bg-white hover:shadow-lg transition-shadow">
           <Code2 className="w-10 h-10 mb-8 text-[#1F1F24]" strokeWidth={1.5} />
-          <h3 className="text-2xl font-bold mb-2">Consectetur Elit</h3>
-          <h4 className="text-gray-500 mb-8 font-medium">React, Next.JS</h4>
+          <h3 className="text-2xl font-bold mb-2">Desenvolvimento</h3>
+          <h4 className="text-gray-500 mb-8 font-medium">Python · React · TypeScript</h4>
           <p className="text-gray-500 leading-relaxed text-sm">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Desenvolvimento de aplicações com foco em Python para automação e back-end, 
+            e React com TypeScript para construção de interfaces modernas e responsivas. 
+            Experiência em projetos que integram front-end e lógica de dados de forma eficiente.
           </p>
         </div>
 
-        {/* Card 3 */}
+        {/* Card 3 — Soft Skills */}
         <div className="border border-gray-200 p-10 flex flex-col items-start bg-white hover:shadow-lg transition-shadow">
-          <Smartphone className="w-10 h-10 mb-8 text-[#1F1F24]" strokeWidth={1.5} />
-          <h3 className="text-2xl font-bold mb-2">Sed Tempor</h3>
-          <h4 className="text-gray-500 mb-8 font-medium">Android, iOS</h4>
+          <Users className="w-10 h-10 mb-8 text-[#1F1F24]" strokeWidth={1.5} />
+          <h3 className="text-2xl font-bold mb-2">Liderança & Equipe</h3>
+          <h4 className="text-gray-500 mb-8 font-medium">Organização · Comunicação · Gestão</h4>
           <p className="text-gray-500 leading-relaxed text-sm">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Habilidade para organizar equipes, distribuir tarefas com clareza e manter o alinhamento 
+            entre os membros do grupo. Perfil comunicativo e colaborativo, com experiência prática 
+            em monitoria e projetos acadêmicos que exigem coordenação e entrega coletiva.
           </p>
         </div>
       </div>
